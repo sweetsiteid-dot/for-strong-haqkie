@@ -1,0 +1,680 @@
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+html{
+    scroll-behavior:smooth;
+}
+
+body{
+    font-family:'Poppins',sans-serif;
+    background:#0a0a0a;
+    color:white;
+    overflow-x:hidden;
+}
+
+/* =========================
+   BACKGROUND
+========================= */
+
+body::before{
+    content:'';
+    position:fixed;
+    inset:0;
+
+    background:
+    radial-gradient(
+        circle at top,
+        #2a2a2a 0%,
+        #111111 40%,
+        #000000 100%
+    );
+
+    z-index:-2;
+}
+
+/* =========================
+   OPENING
+========================= */
+
+#opening{
+    min-height:100vh;
+
+    display:flex;
+    justify-content:center;
+    align-items:center;
+
+    text-align:center;
+
+    padding:30px;
+}
+
+.opening-content{
+    animation:fadeUp 1s ease;
+}
+
+.big-heart{
+    font-size:80px;
+    margin-bottom:20px;
+
+    filter:
+        grayscale(100%)
+        brightness(1.8);
+
+    animation:pulse 2s ease-in-out infinite;
+}
+
+#opening h1{
+    font-size:3rem;
+    font-weight:700;
+    margin-bottom:10px;
+
+    letter-spacing:-1px;
+}
+
+#opening p{
+    color:#bdbdbd;
+    margin-bottom:35px;
+    font-size:1rem;
+}
+
+#openBtn{
+    border:none;
+
+    padding:16px 42px;
+
+    border-radius:999px;
+
+    background:#ffffff;
+    color:#000000;
+
+    font-size:1rem;
+    font-weight:600;
+
+    cursor:pointer;
+
+    transition:.3s;
+}
+
+#openBtn:hover{
+    transform:translateY(-3px);
+
+    box-shadow:
+        0 10px 30px rgba(255,255,255,.15);
+}
+
+/* =========================
+   MAIN CONTENT
+========================= */
+
+#mainContent{
+    display:none;
+}
+
+/* =========================
+   HERO
+========================= */
+
+.hero{
+    min-height:100vh;
+
+    display:flex;
+    justify-content:center;
+    align-items:center;
+
+    text-align:center;
+
+    padding:40px 20px;
+
+    position:relative;
+}
+
+.hero::before{
+    content:'';
+
+    position:absolute;
+
+    width:500px;
+    height:500px;
+
+    border-radius:50%;
+
+    background:rgba(255,255,255,.04);
+
+    filter:blur(80px);
+
+    top:-200px;
+    right:-200px;
+}
+
+.hero-content{
+    max-width:700px;
+    position:relative;
+    z-index:2;
+}
+
+.from{
+    color:#bdbdbd;
+
+    letter-spacing:3px;
+
+    margin-bottom:25px;
+
+    text-transform:uppercase;
+
+    font-size:.85rem;
+}
+
+.hero h1{
+    font-size:4rem;
+
+    line-height:1.1;
+
+    margin-bottom:15px;
+
+    font-family:'Playfair Display',serif;
+
+    color:#ffffff;
+}
+
+.hero h3{
+    font-size:1.8rem;
+
+    margin-bottom:25px;
+
+    font-weight:500;
+
+    color:#e8e8e8;
+}
+
+.subtitle{
+    color:#bcbcbc;
+
+    font-size:1.1rem;
+
+    line-height:1.8;
+
+    margin-bottom:35px;
+}
+
+#memoryBtn{
+    border:none;
+
+    border-radius:999px;
+
+    padding:16px 45px;
+
+    font-weight:600;
+
+    font-size:1rem;
+
+    cursor:pointer;
+
+    background:#ffffff;
+
+    color:#000000;
+
+    transition:.3s;
+}
+
+#memoryBtn:hover{
+    transform:translateY(-3px);
+
+    box-shadow:
+        0 10px 30px rgba(255,255,255,.12);
+}
+
+/* =========================
+   MEMORIES
+========================= */
+
+.memories{
+    padding:100px 20px;
+
+    text-align:center;
+}
+
+.memories h2{
+    font-size:2.2rem;
+
+    margin-bottom:10px;
+
+    font-family:'Playfair Display',serif;
+}
+
+.memories p{
+    color:#bdbdbd;
+
+    margin-bottom:40px;
+
+    line-height:1.8;
+}
+
+/* =========================
+   SLIDER
+========================= */
+
+.slider{
+    width:320px;
+
+    margin:auto;
+}
+
+.slides{
+    width:320px;
+
+    height:480px;
+
+    margin:auto;
+
+    position:relative;
+}
+
+.slide{
+    position:absolute;
+
+    top:0;
+    left:0;
+
+    width:100%;
+    height:100%;
+
+    object-fit:cover;
+
+    border-radius:25px;
+
+    opacity:0;
+
+    transition:1s ease;
+
+    box-shadow:
+        0 15px 40px rgba(0,0,0,.6);
+
+    filter:
+        grayscale(100%);
+}
+
+.slide.active{
+    opacity:1;
+}
+
+.dots{
+    margin-top:25px;
+}
+
+.dot{
+    width:12px;
+    height:12px;
+
+    background:rgba(255,255,255,.25);
+
+    border-radius:50%;
+
+    display:inline-block;
+
+    margin:0 5px;
+
+    cursor:pointer;
+
+    transition:.3s;
+}
+
+.dot.active{
+    background:white;
+
+    transform:scale(1.15);
+}
+
+/* =========================
+   COUNTER
+========================= */
+
+.counter{
+    padding:50px 20px;
+
+    display:flex;
+
+    justify-content:center;
+}
+
+.counter-card{
+    max-width:700px;
+
+    background:rgba(255,255,255,.06);
+
+    backdrop-filter:blur(10px);
+
+    padding:40px;
+
+    border-radius:25px;
+
+    text-align:center;
+
+    border:1px solid rgba(255,255,255,.08);
+
+    box-shadow:
+        0 15px 40px rgba(0,0,0,.25);
+}
+
+.counter-card h2{
+    margin-bottom:15px;
+
+    font-family:'Playfair Display',serif;
+}
+
+.counter-card p{
+    color:#bdbdbd;
+
+    line-height:1.9;
+}
+
+/* =========================
+   LETTER
+========================= */
+
+.letter{
+    padding:100px 20px;
+}
+
+.letter h2{
+    text-align:center;
+
+    font-size:2.3rem;
+
+    margin-bottom:40px;
+
+    font-family:'Playfair Display',serif;
+}
+
+.letter-box{
+    max-width:850px;
+
+    margin:auto;
+
+    background:rgba(255,255,255,.06);
+
+    backdrop-filter:blur(8px);
+
+    border-radius:25px;
+
+    padding:40px;
+
+    line-height:2;
+
+    border:1px solid rgba(255,255,255,.08);
+
+    box-shadow:
+        0 15px 40px rgba(0,0,0,.25);
+}
+
+.letter-box p{
+    margin-bottom:18px;
+
+    color:#e2e2e2;
+}
+
+.ending-text{
+    text-align:center;
+
+    font-weight:600;
+
+    font-size:1.2rem;
+
+    color:#ffffff !important;
+}
+
+.signature{
+    margin-top:40px;
+
+    text-align:right;
+
+    color:#bdbdbd;
+}
+
+.signature h3{
+    color:white;
+
+    margin-top:5px;
+}
+
+/* =========================
+   ENDING
+========================= */
+
+.ending-section{
+    padding:100px 20px;
+
+    text-align:center;
+}
+
+.ending-section h2{
+    font-size:2.3rem;
+
+    margin-bottom:20px;
+
+    font-family:'Playfair Display',serif;
+}
+
+.ending-section p{
+    color:#bdbdbd;
+
+    margin-bottom:30px;
+
+    line-height:1.8;
+}
+
+#musicBtn{
+    border:none;
+
+    padding:16px 40px;
+
+    border-radius:999px;
+
+    background:white;
+
+    color:#000;
+
+    cursor:pointer;
+
+    font-weight:600;
+
+    transition:.3s;
+}
+
+#musicBtn:hover{
+    transform:translateY(-3px);
+
+    box-shadow:
+        0 10px 30px rgba(255,255,255,.12);
+}
+
+/* =========================
+   HEARTS
+========================= */
+
+.hearts{
+    position:fixed;
+
+    inset:0;
+
+    pointer-events:none;
+
+    overflow:hidden;
+
+    z-index:-1;
+}
+
+.heart{
+    position:absolute;
+
+    color:rgba(255,255,255,.15);
+
+    animation:float 10s linear infinite;
+}
+
+@keyframes float{
+
+    from{
+        transform:translateY(100vh);
+
+        opacity:0;
+    }
+
+    20%{
+        opacity:1;
+    }
+
+    to{
+        transform:translateY(-120px);
+
+        opacity:0;
+    }
+
+}
+
+/* =========================
+   HEART PULSE
+========================= */
+
+@keyframes pulse{
+
+    0%{
+        transform:scale(1);
+    }
+
+    50%{
+        transform:scale(1.08);
+    }
+
+    100%{
+        transform:scale(1);
+    }
+
+}
+
+/* =========================
+   FADE UP
+========================= */
+
+@keyframes fadeUp{
+
+    from{
+        opacity:0;
+
+        transform:translateY(40px);
+    }
+
+    to{
+        opacity:1;
+
+        transform:translateY(0);
+    }
+
+}
+
+/* =========================
+   FALLING EFFECT
+========================= */
+
+.falling{
+    position:fixed;
+
+    top:-50px;
+
+    pointer-events:none;
+
+    z-index:9999;
+
+    animation:fall linear forwards;
+
+    filter:
+        grayscale(100%);
+}
+
+@keyframes fall{
+
+    from{
+        transform:
+            translateY(-50px)
+            rotate(0deg);
+
+        opacity:1;
+    }
+
+    to{
+        transform:
+            translateY(120vh)
+            rotate(360deg);
+
+        opacity:0;
+    }
+
+}
+
+/* =========================
+   MOBILE
+========================= */
+
+@media(max-width:768px){
+
+    #opening h1{
+        font-size:2.5rem;
+    }
+
+    .hero h1{
+        font-size:3rem;
+    }
+
+    .hero h3{
+        font-size:1.5rem;
+    }
+
+    .slides{
+        height:500px;
+    }
+
+    .letter-box{
+        padding:28px;
+    }
+
+    .ending-section h2{
+        font-size:1.9rem;
+    }
+
+}
+
+@media(max-width:480px){
+
+    .big-heart{
+        font-size:65px;
+    }
+
+    #opening h1{
+        font-size:2.2rem;
+    }
+
+    .hero h1{
+        font-size:2.6rem;
+    }
+
+    .slider,
+    .slides{
+        width:290px;
+    }
+
+    .slides{
+        height:440px;
+    }
+
+    .letter{
+        padding:80px 15px;
+    }
+
+    .letter-box{
+        padding:25px 20px;
+        font-size:.92rem;
+    }
+
+  }
